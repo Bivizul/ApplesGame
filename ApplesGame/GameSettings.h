@@ -15,7 +15,7 @@ namespace ApplesGame
 	const float ACCELERATION = 10.f; // For each eaten apple player speed will be increased by this value
 
 	const int MIN_APPLES = 40;
-	const int MAX_APPLES = 800;
+	const int MAX_APPLES = 80;
 	const int MIN_ROCKS = 5;
 	const int MAX_ROCKS = 20;
 
