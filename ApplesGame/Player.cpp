@@ -1,7 +1,7 @@
+#include "Apple.h"
+#include "GameSettings.h"
 #include "Player.h"
 #include <assert.h>
-#include "GameSettings.h"
-#include "Apple.h"
 
 
 namespace ApplesGame

@@ -57,7 +57,7 @@ int main()
 		if (UpdateGame(*game, timeDelta))
 		{
 			// Draw everything here
-		// Clear the window first
+			// Clear the window first
 			window.clear();
 
 			DrawGame(*game, window);

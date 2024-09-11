@@ -1,5 +1,5 @@
-#include "GameStateExitDialog.h"
 #include "Game.h"
+#include "GameStateExitDialog.h"
 #include <assert.h>
 
 namespace ApplesGame

@@ -1,14 +1,12 @@
 #include "Apple.h"
 #include "GameSettings.h"
-
-#include <cstdlib>
 #include <assert.h>
+#include <cstdlib>
 
 namespace ApplesGame
 {
 	void InitApple(Apple& apple, const sf::Texture& texture)
 	{
-		// Init sprite
 		apple.sprite.setTexture(texture);
 		apple.sprite.setOrigin(GetItemOrigin(apple.sprite, { 0.5f, 0.5f })); // We need to use texture as origin ignores scale
 		apple.sprite.setScale(GetSpriteScale(apple.sprite, { APPLE_SIZE, APPLE_SIZE }));
@@ -32,7 +30,6 @@ namespace ApplesGame
 
 	void ResetAppleState(Apple& apple)
 	{
-		// init apple state
 		apple.position.x = (float)(rand() % SCREEN_WIDTH);
 		apple.position.y = (float)(rand() % SCREEN_HEIGHT);
 		apple.isEaten = false;
@@ -40,13 +37,7 @@ namespace ApplesGame
 
 	void ClearApplesGrid(ApplesGrid& applesGrid)
 	{
-		for (int i = 0; i < APPLES_GRID_CELLS_HORIZONTAL; i++)
-		{
-			for (int j = 0; j < APPLES_GRID_CELLS_VERTICAL; j++)
-			{
-				applesGrid.cells[i][j].apples.clear();
-			}
-		}
+		applesGrid.cells.clear();
 	}
 
 	void AddAppleToGrid(ApplesGrid& applesGrid, Apple& apple)
@@ -66,8 +57,7 @@ namespace ApplesGame
 		{
 			for (int cellY = minCellY; cellY <= maxCellY; ++cellY)
 			{
-				ApplesGridCell& cell = applesGrid.cells[cellX][cellY];
-				cell.apples.insert(&apple);
+				applesGrid.cells[cellX][cellY].apples.insert(&apple);
 			}
 		}
 	}
@@ -101,17 +91,20 @@ namespace ApplesGame
 		{
 			for (int cellY = minCellY; cellY <= maxCellY; ++cellY)
 			{
-				for (Apple* apple : grid.cells[cellX][cellY].apples)
+				if (grid.cells.find(cellX) != grid.cells.end() && grid.cells.at(cellX).find(cellY) != grid.cells.at(cellX).end())
 				{
-					if (!apple->isEaten)
+					for (Apple* apple : grid.cells.at(cellX).at(cellY).apples)
 					{
-						float dx = playerPosition.x - apple->position.x;
-						float dy = playerPosition.y - apple->position.y;
-						float distance = sqrt(dx * dx + dy * dy);
-						if (distance < (PLAYER_SIZE + APPLE_SIZE) / 2)
+						if (!apple->isEaten)
 						{
-							result[numFoundApples] = apple;
-							++numFoundApples;
+							float dx = playerPosition.x - apple->position.x;
+							float dy = playerPosition.y - apple->position.y;
+							float distance = sqrt(dx * dx + dy * dy);
+							if (distance < (PLAYER_SIZE + APPLE_SIZE) / 2)
+							{
+								result[numFoundApples] = apple;
+								++numFoundApples;
+							}
 						}
 					}
 				}

@@ -1,6 +1,6 @@
+#include "Game.h"
 #include "GameStateGameOver.h"
 #include <assert.h>
-#include "Game.h"
 
 namespace ApplesGame
 {

@@ -1,5 +1,5 @@
-#include "GameStateMainMenu.h"
 #include "Game.h"
+#include "GameStateMainMenu.h"
 #include <assert.h>
 
 namespace ApplesGame

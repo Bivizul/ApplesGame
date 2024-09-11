@@ -10,6 +10,7 @@ namespace ApplesGame
 	};
 
 	Vector2D operator+(const Vector2D& lhs, const Vector2D& rhs);
+	Vector2D GetRandomPositionInScreen(float screenWidth, float screenHeight);
 
 	typedef Vector2D Position;
 
@@ -35,6 +36,4 @@ namespace ApplesGame
 	void DrawItemsList(sf::RenderWindow& window, const std::vector<sf::Text*>& items, float spacing, Orientation orientation, Alignment alignment, const sf::Vector2f& position, const sf::Vector2f& origin);
 
 	bool IsPointInRect(Vector2D point, Vector2D rectTL, Vector2D rectBR);
-
-	Vector2D GetRandomPositionInScreen(float screenWidth, float screenHeight);
 }

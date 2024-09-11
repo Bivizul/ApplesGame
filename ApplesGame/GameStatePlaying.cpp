@@ -1,5 +1,5 @@
-#include "GameStatePlaying.h"
 #include "Game.h"
+#include "GameStatePlaying.h"
 #include <assert.h>
 #include <iostream>
 

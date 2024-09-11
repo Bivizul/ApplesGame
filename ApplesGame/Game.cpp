@@ -1,10 +1,10 @@
 #include "Game.h"
-#include <assert.h>
-#include <algorithm>
-#include "GameStatePlaying.h"
-#include "GameStateGameOver.h"
 #include "GameStateExitDialog.h"
+#include "GameStateGameOver.h"
 #include "GameStateMainMenu.h"
+#include "GameStatePlaying.h"
+#include <algorithm>
+#include <assert.h>
 
 namespace ApplesGame
 {

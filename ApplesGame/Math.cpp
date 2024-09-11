@@ -2,12 +2,19 @@
 
 namespace ApplesGame
 {
-
 	Vector2D operator+(const Vector2D& lhs, const Vector2D& rhs)
 	{
 		Vector2D result;
 		result.x = lhs.x + rhs.x;
 		result.y = lhs.y + rhs.y;
+		return result;
+	}
+
+	Vector2D GetRandomPositionInScreen(float screenWidth, float screenHeight)
+	{
+		Vector2D result;
+		result.x = rand() / (float)RAND_MAX * screenWidth;
+		result.y = rand() / (float)RAND_MAX * screenHeight;
 		return result;
 	}
 
@@ -92,8 +99,6 @@ namespace ApplesGame
 			{
 				currentPos.y += itemRect.height + spacing;
 			}
-
-
 		}
 	}
 
@@ -108,13 +113,5 @@ namespace ApplesGame
 			return false;
 		}
 		return true;
-	}
-
-	Vector2D GetRandomPositionInScreen(float screenWidth, float screenHeight)
-	{
-		Vector2D result;
-		result.x = rand() / (float)RAND_MAX * screenWidth;
-		result.y = rand() / (float)RAND_MAX * screenHeight;
-		return result;
 	}
 }

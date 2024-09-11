@@ -2,6 +2,7 @@
 #include "GameSettings.h"
 #include "Math.h"
 #include <SFML/Graphics.hpp>
+#include <unordered_map>
 #include <unordered_set>
 
 namespace ApplesGame
@@ -28,7 +29,7 @@ namespace ApplesGame
 
 	struct ApplesGrid
 	{
-		ApplesGridCell cells[APPLES_GRID_CELLS_HORIZONTAL][APPLES_GRID_CELLS_VERTICAL];
+		std::unordered_map<int, std::unordered_map<int, ApplesGridCell>> cells;
 	};
 
 	void ClearApplesGrid(ApplesGrid& applesGrid);
